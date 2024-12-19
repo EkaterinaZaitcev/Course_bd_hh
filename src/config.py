@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 
 
-def config(filename="database.ini", section="postgresql"):
+def config(filename=".env", section="postgresql"):
     """Функция для получения словаря с данными для подключения к БД"""
     parser = ConfigParser()
     parser.read(filename)
