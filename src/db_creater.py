@@ -29,7 +29,7 @@ def create_db(db_name: str, params: dict[str, Any]) ->None:
 
     with conn.cursor() as cur:
         cur.execute("""
-               CREATE TABLE vacancies (
+               CREATE TABLE vacancy (
                    vacancy_id INTEGER,
                    vacancy_name VARCHAR,
                    vacancy_area VARCHAR,
@@ -59,7 +59,7 @@ def save_data_to_database(data_employer: list[dict[str, Any]], data_vacancies: l
             salary_from = vacancy['salary']['from'] if vacancy['salary'] and vacancy['salary'][
                 'from'] is not None else 0
             cur.execute("""
-                        INSERT INTO vacancies (vacancy_id, vacancy_name, vacancy_area, salary, employer_id, vacancy_url)
+                        INSERT INTO vacancy (vacancy_id, vacancy_name, vacancy_area, salary, employer_id, vacancy_url)
                         VALUES (%s, %s, %s, %s, %s, %s)
                         """,
                         (vacancy.get('id'), vacancy['name'], vacancy['area']['name'], salary_from,

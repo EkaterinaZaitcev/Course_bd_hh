@@ -1,6 +1,3 @@
-from typing import Any
-from decimal import Decimal
-
 import psycopg2
 
 class DBManager:
@@ -36,7 +33,7 @@ class DBManager:
         """Получение средней зарплаты по вакансиям."""
         self.cur.execute("""
                     SELECT AVG(salary)
-                    FROM vacancies
+                    FROM vacancy
             """)
 
         return self.cur.fetchall()
